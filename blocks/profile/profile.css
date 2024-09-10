@@ -1,5 +1,14 @@
 .profile {
   width: 100%;
   max-width: 880px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+  color: #fff;
+}
+
+@media screen and (max-width: 900px) {
+  .profile {
+    flex-direction: column;
+  }
 }

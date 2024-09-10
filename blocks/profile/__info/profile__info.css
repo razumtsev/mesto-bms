@@ -1,3 +1,16 @@
 .profile__info {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  gap: 16px 18px;
+}
 
+@media screen and (max-width: 900px) {
+  .profile__info {
+    margin-top: 26px;
+    margin-left: 28px;
+    gap: 14px 10px;
+    max-width: 80%;
+  }
 }
