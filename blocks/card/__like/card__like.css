@@ -1,0 +1,10 @@
+.card__like {
+  width: 22px;
+  height: 19px;
+  background-image: url(../../../images/vector-like.svg);
+  background-color: transparent;
+}
+
+.card__like:hover {
+  opacity: .5;
+}
