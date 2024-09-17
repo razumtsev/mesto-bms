@@ -1,0 +1,25 @@
+.popup__close {
+  width: 41px;
+  height: 41px;
+  background-image: url(../../../images/vector-cross.svg);
+  background-size: cover;
+  background-color: transparent;
+  background-position: center;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -44px;
+  right: -44px;
+}
+
+.popup__close:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 618px) {
+  .popup__close {
+    width: 25px;
+    height: 25px;
+    top: -38px;
+    right: -3px;
+  }
+}

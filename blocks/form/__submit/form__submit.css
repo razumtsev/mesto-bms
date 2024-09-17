@@ -1,0 +1,22 @@
+.form__submit {
+  font-size: 18px;
+  line-height: 21.78px;
+  background-color: rgba(0, 0, 0, 1);
+  color: #fff;
+  border-radius: 2px;
+  min-height: 50px;
+  margin-top: auto;
+}
+
+.form__submit:hover {
+  background-color: rgba(0, 0, 0, .8);;
+}
+
+@media screen and (max-width: 618px) {
+  .form__submit {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    min-height: 46px;
+  }
+}
