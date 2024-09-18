@@ -7,7 +7,8 @@
   background-repeat: no-repeat;
   background-position: center;
   border: 1px solid #fff;
-  margin: auto 0;
+  align-self: center;
+  margin-top: 9px;
 }
 
 .profile__edit:hover {
@@ -19,5 +20,6 @@
     width: 18px;
     height: 18px;
     background-size: 7.5px 7.5px;
+    margin-top: 1px;
   }
 }
