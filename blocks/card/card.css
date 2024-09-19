@@ -2,9 +2,8 @@
   background-color: #fff;
   border-radius: 10px;
   width: 282px;
-  height: 361px;
   display: grid;
   grid-template-columns: auto 42px;
-  grid-template-rows: 282px auto;
+  grid-template-rows: 282px 79px;
   align-items: center;
 }
