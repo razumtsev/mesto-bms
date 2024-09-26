@@ -24,7 +24,7 @@
       </section>
       <section class="cards" aria-label="Карточки с изображениями">
         <ul class="list cards__list">
-          <li class="card">
+          <!-- <li class="card">
             <img class="card__image" src="./images/card-karachaevsk.jpg" alt="храм в горах">
             <h2 class="card__title text-overflow">Карачаевск</h2>
             <button class="button card__like" type="button"></button>
@@ -53,16 +53,25 @@
             <img class="card__image" src="./images/card-karachaevo-cherk.jpg" alt="храм в горах">
             <h2 class="card__title text-overflow">Карачаево-Черкессия</h2>
             <button class="button card__like" type="button"></button>
-          </li>
+          </li> -->
         </ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2024 Mesto Russia</p>
     </footer>
+
+    <template id="card-template">
+      <li class="card">
+        <img class="card__image" src="#" alt="#">
+        <h2 class="card__title text-overflow"></h2>
+        <button class="button card__like" type="button"></button>
+      </li>
+    </template>
+
     <div class="popup popup_type_edit-profile">
       <div class="popup__container">
-        <form class="form popup__form" name="edit-profile">
+        <form class="form form_type_edit-profile popup__form" name="edit-profile">
           <h2 class="form__title">Редактировать профиль</h2>
           <input class="form__input form__input_type_username" type="text" name="username">
           <input class="form__input form__input_type_about" type="text" name="about">
@@ -71,7 +80,9 @@
         <button class="button popup__close" type="button" aria-label="закрыть модальное окно"></button>
       </div>
     </div>
+
+
   </div>
-  <script src="./script.js"></script>
+  <script src="./scripts/script.js" type="module"></script>
 </body>
 </html>
