@@ -24,36 +24,7 @@
       </section>
       <section class="cards" aria-label="Карточки с изображениями">
         <ul class="list cards__list">
-          <!-- <li class="card">
-            <img class="card__image" src="./images/card-karachaevsk.jpg" alt="храм в горах">
-            <h2 class="card__title text-overflow">Карачаевск</h2>
-            <button class="button card__like" type="button"></button>
-          </li>
-          <li class="card">
-            <img class="card__image" src="./images/card-elbrus.jpg" alt="гора на горизонте">
-            <h2 class="card__title text-overflow">Гора Эльбрус</h2>
-            <button class="button card__like" type="button"></button>
-          </li>
-          <li class="card">
-            <img class="card__image" src="./images/card-dombay.jpg" alt="заснеженный пик">
-            <h2 class="card__title text-overflow">Домбай</h2>
-            <button class="button card__like" type="button"></button>
-          </li>
-          <li class="card">
-            <img class="card__image" src="./images/card-elbrus.jpg" alt="гора на горизонте">
-            <h2 class="card__title text-overflow">Гора Эльбрус</h2>
-            <button class="button card__like" type="button"></button>
-          </li>
-          <li class="card">
-            <img class="card__image" src="./images/card-dombay.jpg" alt="заснеженный пик">
-            <h2 class="card__title text-overflow">Домбай</h2>
-            <button class="button card__like" type="button"></button>
-          </li>
-          <li class="card">
-            <img class="card__image" src="./images/card-karachaevo-cherk.jpg" alt="храм в горах">
-            <h2 class="card__title text-overflow">Карачаево-Черкессия</h2>
-            <button class="button card__like" type="button"></button>
-          </li> -->
+          <!-- Карточки добавляются скриптом -->
         </ul>
       </section>
     </main>
@@ -81,6 +52,17 @@
       </div>
     </div>
 
+    <div class="popup popup_type_add-card">
+      <div class="popup__container">
+        <form class="form form_type_add-card popup__form" name="add-card">
+          <h2 class="form__title">Новое место</h2>
+          <input class="form__input form__input_type_name" type="text" name="name">
+          <input class="form__input form__input_type_link" type="url" name="link">
+          <button class="button form__submit" type="submit">Создать</button>
+        </form>
+        <button class="button popup__close" type="button" aria-label="закрыть модальное окно"></button>
+      </div>
+    </div>
 
   </div>
   <script src="./scripts/script.js" type="module"></script>
