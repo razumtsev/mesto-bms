@@ -5,7 +5,6 @@ const buttonEditProfile = page.querySelector('.profile__edit');
 const buttonAddCard = page.querySelector('.profile__add-card');
 const profileUsername = page.querySelector('.profile__username');
 const profileAbout = page.querySelector('.profile__about');
-const popup = page.querySelector('.popup');
 const popupEditProfile = page.querySelector('.popup_type_edit-profile');
 const formTypeEditProfile = popupEditProfile.querySelector('.form_type_edit-profile');
 const inputUsername = formTypeEditProfile.querySelector('.form__input_type_username');
@@ -15,17 +14,20 @@ const formTypeAddCard = popupAddCard.querySelector('.form_type_add-card');
 const inputCardName = popupAddCard.querySelector('.form__input_type_name');
 const inputCardLink = popupAddCard.querySelector('.form__input_type_link');
 const buttonClosePopupCollection = document.querySelectorAll('.popup__close');
-
 const cardsList = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('#card-template').content;
+
+const handleLikeClick = (evt) => evt.target.classList.toggle('card__like_is-active');
 
 const createCard = ({ link, name }) => {
   const card = cardTemplate.cloneNode(true);
   const cardImage = card.querySelector('.card__image');
   const cardTitle = card.querySelector('.card__title');
+  const like = card.querySelector('.card__like');
   cardImage.src = link;
   cardImage.alt = name;
   cardTitle.textContent = name;
+  like.addEventListener('click', handleLikeClick);
   return card;
 }
 
@@ -66,8 +68,6 @@ const handleAddCardFormSubmit = (evt) => {
   closePopup(evt);
   formTypeAddCard.reset();
 }
-
-console.log(buttonClosePopupCollection);
 
 buttonEditProfile.addEventListener('click', handleEditProfileButtonClick);
 buttonAddCard.addEventListener('click', handleAddCardButtonClick);
