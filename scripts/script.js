@@ -17,17 +17,20 @@ const buttonClosePopupCollection = document.querySelectorAll('.popup__close');
 const cardsList = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('#card-template').content;
 
-const handleLikeClick = (evt) => evt.target.classList.toggle('card__like_is-active');
+const handleLikeButtonClick = (evt) => evt.target.classList.toggle('card__like_is-active');
+const handleDeleteButtonClick = (evt) => evt.target.closest('.card').remove();
 
 const createCard = ({ link, name }) => {
   const card = cardTemplate.cloneNode(true);
   const cardImage = card.querySelector('.card__image');
   const cardTitle = card.querySelector('.card__title');
-  const like = card.querySelector('.card__like');
+  const likeButton = card.querySelector('.card__like');
+  const deleteButton = card.querySelector('.card__remove');
   cardImage.src = link;
   cardImage.alt = name;
   cardTitle.textContent = name;
-  like.addEventListener('click', handleLikeClick);
+  likeButton.addEventListener('click', handleLikeButtonClick);
+  deleteButton.addEventListener('click', handleDeleteButtonClick);
   return card;
 }
 

@@ -37,6 +37,7 @@
         <img class="card__image" src="#" alt="#">
         <h2 class="card__title text-overflow"></h2>
         <button class="button card__like" type="button"></button>
+        <button class="button card__remove" type="button"></button>
       </li>
     </template>
 
@@ -56,8 +57,8 @@
       <div class="popup__container">
         <form class="form form_type_add-card popup__form" name="add-card">
           <h2 class="form__title">Новое место</h2>
-          <input class="form__input form__input_type_name" type="text" name="name">
-          <input class="form__input form__input_type_link" type="url" name="link">
+          <input class="form__input form__input_type_name" type="text" name="name" placeholder="Название карточки">
+          <input class="form__input form__input_type_link" type="url" name="link" placeholder="Ссылка на картинку">
           <button class="button form__submit" type="submit">Создать</button>
         </form>
         <button class="button popup__close" type="button" aria-label="закрыть модальное окно"></button>

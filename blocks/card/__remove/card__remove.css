@@ -1,0 +1,13 @@
+.card__remove {
+  width: 18px;
+  height: 19px;
+  background-image: url(../../../images/vector-trashcan.svg);
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.card__remove:hover {
+  opacity: .6;
+}
