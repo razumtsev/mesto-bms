@@ -13,12 +13,24 @@ const popupAddCard = page.querySelector('.popup_type_add-card');
 const formTypeAddCard = popupAddCard.querySelector('.form_type_add-card');
 const inputCardName = popupAddCard.querySelector('.form__input_type_name');
 const inputCardLink = popupAddCard.querySelector('.form__input_type_link');
+const popupBigPucture = page.querySelector('.popup_type_big-picture');
+const popupBigPuctureImage = popupBigPucture.querySelector('.popup__image');
+const popupBigPuctureTitle = popupBigPucture.querySelector('.popup__title');
 const buttonClosePopupCollection = document.querySelectorAll('.popup__close');
 const cardsList = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('#card-template').content;
 
 const handleLikeButtonClick = (evt) => evt.target.classList.toggle('card__like_is-active');
 const handleDeleteButtonClick = (evt) => evt.target.closest('.card').remove();
+const handleCardImageClick = (evt) => {
+  const card = evt.target.closest('.card');
+  const cardImage = card.querySelector('.card__image');
+  const cardTitle = card.querySelector('.card__title');
+  popupBigPuctureImage.src = cardImage.src;
+  popupBigPuctureImage.alt = cardTitle.textContent;
+  popupBigPuctureTitle.textContent = cardTitle.textContent;
+  openPopup(popupBigPucture);
+}
 
 const createCard = ({ link, name }) => {
   const card = cardTemplate.cloneNode(true);
@@ -29,6 +41,7 @@ const createCard = ({ link, name }) => {
   cardImage.src = link;
   cardImage.alt = name;
   cardTitle.textContent = name;
+  cardImage.addEventListener('click', handleCardImageClick);
   likeButton.addEventListener('click', handleLikeButtonClick);
   deleteButton.addEventListener('click', handleDeleteButtonClick);
   return card;
