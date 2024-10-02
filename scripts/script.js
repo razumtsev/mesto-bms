@@ -18,7 +18,7 @@ const popupBigPuctureImage = popupBigPucture.querySelector('.popup__image');
 const popupBigPuctureTitle = popupBigPucture.querySelector('.popup__title');
 const buttonClosePopupCollection = document.querySelectorAll('.popup__close');
 const cardsList = document.querySelector('.cards__list');
-const cardTemplate = document.querySelector('#card-template').content;
+const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
 
 const handleLikeButtonClick = (evt) => evt.target.classList.toggle('card__like_is-active');
 const handleDeleteButtonClick = (evt) => evt.target.closest('.card').remove();
@@ -52,11 +52,8 @@ const renderCardPrepend = (card) => cardsList.prepend(card);
 
 initialCards.forEach((item) => renderCardAppend(createCard(item)));
 
-
-const openPopup = (popupName) => popupName.classList.add('popup_is-open');
-const closePopup = (evt) => {
-  evt.target.closest('.popup').classList.remove('popup_is-open');
-}
+const openPopup = (popup) => popup.classList.add('popup_is-open');
+const closePopup = (popup) => popup.classList.remove('popup_is-open');
 
 const handleEditProfileButtonClick = () => {
   inputUsername.value = profileUsername.textContent;
@@ -72,21 +69,27 @@ const handleEditProfileFormSubmit = (evt) => {
   evt.preventDefault();
   profileUsername.textContent = inputUsername.value;
   profileAbout.textContent = inputAbout.value;
-  closePopup(evt);
+  closePopup(popupEditProfile);
 }
 
 const handleAddCardFormSubmit = (evt) => {
   evt.preventDefault();
-  const card = {};
-  card.name = inputCardName.value;
-  card.link = inputCardLink.value;
+  const card = {
+    name: inputCardName.value,
+    link: inputCardLink.value,
+  };
   renderCardPrepend(createCard(card));
-  closePopup(evt);
+  closePopup(popupAddCard);
   formTypeAddCard.reset();
 }
+
+// const handleCloseButtonClick = () => closePopup(document.querySelector('.popup_is-open'));
 
 buttonEditProfile.addEventListener('click', handleEditProfileButtonClick);
 buttonAddCard.addEventListener('click', handleAddCardButtonClick);
 formTypeEditProfile.addEventListener('submit', handleEditProfileFormSubmit);
 formTypeAddCard.addEventListener('submit', handleAddCardFormSubmit);
-buttonClosePopupCollection.forEach((item) => item.addEventListener('click', closePopup));
+buttonClosePopupCollection.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
