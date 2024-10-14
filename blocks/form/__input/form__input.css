@@ -4,16 +4,21 @@
   line-height: 16.94px;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-  margin-top: 30px;
+  /* margin-top: 6px; */
+  /* padding-top: 4px; */
   padding-bottom: 8px;
 }
 
-.form__input:first-of-type {
-  margin-top: 49px;
+.form__input:focus {
+  outline: 1px solid rgba(0, 0, 0, .2);
+}
+
+/* .form__input:first-of-type {
+  margin-top: 46px;
 }
 
 @media screen and (max-width: 618px) {
   .form__input:first-of-type {
     margin-top: 75px;
   }
-}
+} */

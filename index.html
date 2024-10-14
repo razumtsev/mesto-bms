@@ -44,10 +44,28 @@
 
     <div class="popup popup_type_edit-profile">
       <div class="popup__container popup__container_type_form">
-        <form class="form form_type_edit-profile popup__form" name="edit-profile">
+        <form class="form form_type_edit-profile popup__form" name="edit-profile" novalidate>
           <h2 class="form__title">Редактировать профиль</h2>
-          <input class="form__input form__input_type_username" type="text" name="username">
-          <input class="form__input form__input_type_about" type="text" name="about">
+          <input
+            class="form__input form__input_type_username"
+            id="username-input"
+            type="text"
+            name="username"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <p class="username-input-error form__error-message"></p>
+          <input
+            class="form__input form__input_type_about"
+            id="about-input"
+            type="text"
+            name="about"
+            minlength="2"
+            maxlength="200"
+            required
+          />
+          <p class="about-input-error form__error-message"></p>
           <button class="button form__submit" type="submit">Сохранить</button>
         </form>
         <button class="button popup__close" type="button" aria-label="закрыть модальное окно"></button>
@@ -56,16 +74,34 @@
 
     <div class="popup popup_type_add-card">
       <div class="popup__container popup__container_type_form">
-        <form class="form form_type_add-card popup__form" name="add-card">
+        <form class="form form_type_add-card popup__form" name="add-card" novalidate>
           <h2 class="form__title">Новое место</h2>
-          <input class="form__input form__input_type_name" type="text" name="name" placeholder="Название">
-          <input class="form__input form__input_type_link" type="url" name="link" placeholder="Ссылка на картинку">
+          <input
+            class="form__input form__input_type_name"
+            id="name-input"
+            type="text"
+            name="name"
+            placeholder="Название"
+            minlength="2"
+            maxlength="30"
+            required
+          />
+          <!-- <p class="name-input-error form__error-message">Вы пропустили это поле. Вы это поле пропустили. Зачем Вы сделали такое? Сказать хотите, что забыли? И Вы ли то доколе были?</p> -->
+          <p class="name-input-error form__error-message">Вы пропустили это поле.</p>
+          <input
+            class="form__input form__input_type_link"
+            id="link-input"
+            type="url"
+            name="link"
+            placeholder="Ссылка на картинку"
+            required
+          />
+          <p class="link-input-error form__error-message">Введите адрес сайта.</p>
           <button class="button form__submit" type="submit">Создать</button>
         </form>
         <button class="button popup__close" type="button" aria-label="закрыть модальное окно"></button>
       </div>
     </div>
-
 
     <div class="popup popup_type_big-picture">
       <div class="popup__container popup__container_type_image">

@@ -1,4 +1,6 @@
 import { initialCards } from "./initialCards.js";
+import { enableValidation } from "./validate.js";
+import { validateOptions } from "./validateOpitons.js";
 
 const page = document.querySelector('.page');
 const buttonEditProfile = page.querySelector('.profile__edit');
@@ -22,10 +24,7 @@ const cardTemplate = document.querySelector('#card-template').content.querySelec
 
 const handleLikeButtonClick = (evt) => evt.target.classList.toggle('card__like_is-active');
 const handleDeleteButtonClick = (evt) => evt.target.closest('.card').remove();
-const handleCardImageClick = (evt) => {
-  const card = evt.target.closest('.card');
-  const cardImage = card.querySelector('.card__image');
-  const cardTitle = card.querySelector('.card__title');
+const handleCardImageClick = (cardImage, cardTitle) => {
   popupBigPuctureImage.src = cardImage.src;
   popupBigPuctureImage.alt = cardTitle.textContent;
   popupBigPuctureTitle.textContent = cardTitle.textContent;
@@ -41,7 +40,7 @@ const createCard = ({ link, name }) => {
   cardImage.src = link;
   cardImage.alt = name;
   cardTitle.textContent = name;
-  cardImage.addEventListener('click', handleCardImageClick);
+  cardImage.addEventListener('click', () => handleCardImageClick(cardImage, cardTitle));
   likeButton.addEventListener('click', handleLikeButtonClick);
   deleteButton.addEventListener('click', handleDeleteButtonClick);
   return card;
@@ -52,8 +51,28 @@ const renderCardPrepend = (card) => cardsList.prepend(card);
 
 initialCards.forEach((item) => renderCardAppend(createCard(item)));
 
-const openPopup = (popup) => popup.classList.add('popup_is-open');
-const closePopup = (popup) => popup.classList.remove('popup_is-open');
+const handlePopupClick = (evt) => {
+  if (evt.target.classList.contains('popup')) closePopup(evt.target);
+}
+
+const handleEscapeClick = (evt) => {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_is-open');
+    closePopup(openedPopup);
+  }
+}
+
+const openPopup = (popup) => {
+  popup.addEventListener('click', handlePopupClick);
+  document.addEventListener('keyup', handleEscapeClick);
+  popup.classList.add('popup_is-open');
+}
+
+const closePopup = (popup) => {
+  popup.removeEventListener('click', handlePopupClick);
+  document.removeEventListener('keyup', handleEscapeClick);
+  popup.classList.remove('popup_is-open');
+}
 
 const handleEditProfileButtonClick = () => {
   inputUsername.value = profileUsername.textContent;
@@ -83,8 +102,6 @@ const handleAddCardFormSubmit = (evt) => {
   formTypeAddCard.reset();
 }
 
-// const handleCloseButtonClick = () => closePopup(document.querySelector('.popup_is-open'));
-
 buttonEditProfile.addEventListener('click', handleEditProfileButtonClick);
 buttonAddCard.addEventListener('click', handleAddCardButtonClick);
 formTypeEditProfile.addEventListener('submit', handleEditProfileFormSubmit);
@@ -93,3 +110,5 @@ buttonClosePopupCollection.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
+enableValidation(validateOptions);
