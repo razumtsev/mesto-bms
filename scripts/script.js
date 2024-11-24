@@ -33,28 +33,32 @@ const handleCardImageClick = (cardImage, cardTitle) => {
   openPopup(popupBigPucture);
 }
 
-const createCard = ({ link, name }) => {
-  const card = cardTemplate.cloneNode(true);
-  const cardImage = card.querySelector('.card__image');
-  const cardTitle = card.querySelector('.card__title');
-  const likeButton = card.querySelector('.card__like');
-  const deleteButton = card.querySelector('.card__remove');
-  cardImage.src = link;
-  cardImage.alt = name;
-  cardTitle.textContent = name;
-  cardImage.addEventListener('click', () => handleCardImageClick(cardImage, cardTitle));
-  likeButton.addEventListener('click', handleLikeButtonClick);
-  deleteButton.addEventListener('click', handleDeleteButtonClick);
-  return card;
-}
+// const createCard = ({ link, name }) => {
+//   const card = cardTemplate.cloneNode(true);
+//   const cardImage = card.querySelector('.card__image');
+//   const cardTitle = card.querySelector('.card__title');
+//   const likeButton = card.querySelector('.card__like');
+//   const deleteButton = card.querySelector('.card__remove');
+//   cardImage.src = link;
+//   cardImage.alt = name;
+//   cardTitle.textContent = name;
+//   cardImage.addEventListener('click', () => handleCardImageClick(cardImage, cardTitle));
+//   likeButton.addEventListener('click', handleLikeButtonClick);
+//   deleteButton.addEventListener('click', handleDeleteButtonClick);
+//   return card;
+// }
 
 const renderCardAppend = (card) => cardsList.append(card);
 const renderCardPrepend = (card) => cardsList.prepend(card);
 
 // initialCards.forEach((item) => renderCardAppend(createCard(item)));
-initialCards.forEach((item) => {
+const createCard = (item) => {
   const cardElement = new Card(item, cardOptions);
-  const card = cardElement.generate();
+  return cardElement.generate();
+}
+
+initialCards.forEach((item) => {
+  const card = createCard(item);
   renderCardAppend(card);
 });
 
@@ -97,6 +101,17 @@ const handleEditProfileFormSubmit = (evt) => {
   profileAbout.textContent = inputAbout.value;
   closePopup(popupEditProfile);
 }
+
+// const handleAddCardFormSubmit = (evt) => {
+//   evt.preventDefault();
+//   const card = {
+//     name: inputCardName.value,
+//     link: inputCardLink.value,
+//   };
+//   renderCardPrepend(createCard(card));
+//   closePopup(popupAddCard);
+//   formTypeAddCard.reset();
+// }
 
 const handleAddCardFormSubmit = (evt) => {
   evt.preventDefault();
