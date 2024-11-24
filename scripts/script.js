@@ -1,6 +1,8 @@
 import { initialCards } from "./initialCards.js";
 import { enableValidation } from "./validate.js";
 import { validateOptions } from "./validateOpitons.js";
+import { Card } from "./Card.js";
+import { cardOptions } from "./cardOptions.js";
 
 const page = document.querySelector('.page');
 const buttonEditProfile = page.querySelector('.profile__edit');
@@ -49,7 +51,12 @@ const createCard = ({ link, name }) => {
 const renderCardAppend = (card) => cardsList.append(card);
 const renderCardPrepend = (card) => cardsList.prepend(card);
 
-initialCards.forEach((item) => renderCardAppend(createCard(item)));
+// initialCards.forEach((item) => renderCardAppend(createCard(item)));
+initialCards.forEach((item) => {
+  const cardElement = new Card(item, cardOptions);
+  const card = cardElement.generate();
+  renderCardAppend(card);
+});
 
 const handlePopupClick = (evt) => {
   if (evt.target.classList.contains('popup')) closePopup(evt.target);
