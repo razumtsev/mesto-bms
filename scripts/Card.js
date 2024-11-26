@@ -49,9 +49,6 @@ export class Card {
   }
 
   _handleImageClick () {
-    // console.log('image click!');
-    // console.log(this._link, this._name);
-    // console.log(this._handleCardImageClick);
     this._handleCardImageClick(this._link, this._name);
   }
 
