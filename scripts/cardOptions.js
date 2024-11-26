@@ -5,4 +5,5 @@ export const cardOptions = {
   titleSelector: '.card__title',
   likeSelector: '.card__like',
   deleteButtonSelector: '.card__remove',
+  likeIsActiveClass: 'card__like_is-active',
 }

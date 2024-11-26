@@ -27,9 +27,12 @@ const cardTemplate = document.querySelector('#card-template').content.querySelec
 const handleLikeButtonClick = (evt) => evt.target.classList.toggle('card__like_is-active');
 const handleDeleteButtonClick = (evt) => evt.target.closest('.card').remove();
 const handleCardImageClick = (cardImage, cardTitle) => {
-  popupBigPuctureImage.src = cardImage.src;
-  popupBigPuctureImage.alt = cardTitle.textContent;
-  popupBigPuctureTitle.textContent = cardTitle.textContent;
+  // popupBigPuctureImage.src = cardImage.src;
+  // popupBigPuctureImage.alt = cardTitle.textContent;
+  // popupBigPuctureTitle.textContent = cardTitle.textContent;
+  popupBigPuctureImage.src = cardImage;
+  popupBigPuctureImage.alt = cardTitle;
+  popupBigPuctureTitle.textContent = cardTitle;
   openPopup(popupBigPucture);
 }
 
@@ -53,7 +56,7 @@ const renderCardPrepend = (card) => cardsList.prepend(card);
 
 // initialCards.forEach((item) => renderCardAppend(createCard(item)));
 const createCard = (item) => {
-  const cardElement = new Card(item, cardOptions);
+  const cardElement = new Card(item, cardOptions, handleCardImageClick);
   return cardElement.generate();
 }
 
