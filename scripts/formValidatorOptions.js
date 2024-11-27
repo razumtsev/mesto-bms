@@ -1,4 +1,4 @@
-export const validateOptions = {
+export const formValidatorOptions = {
   formSelector: '.form',
   inputSelector: '.form__input',
   submitButtonSelector: '.form__submit',
